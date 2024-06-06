@@ -15,7 +15,6 @@ function App() {
         <BackgroundSwitcher />
         <Navbar />
         <header>
-          <h1>Komachan</h1>
         </header>
         <main>
           <Routes>
