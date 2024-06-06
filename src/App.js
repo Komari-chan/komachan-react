@@ -1,6 +1,5 @@
-// src/App.js
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom'; // 使用 HashRouter
 import Navbar from './components/Navbar';
 import HomePage from './components/HomePage';
 import PixivPage from './components/PixivPage';
@@ -16,6 +15,7 @@ function App() {
         <BackgroundSwitcher />
         <Navbar />
         <header>
+          <h1>Komachan</h1>
         </header>
         <main>
           <Routes>
