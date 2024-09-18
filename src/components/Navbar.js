@@ -1,18 +1,38 @@
-// src/components/Navbar.js
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+
+  const handleMenuClick = (e) => {
+    e.stopPropagation();
+  };
+
   return (
-    <nav className="navbar">
-      <ul className="nav-links">
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/pixiv">Pixiv</Link></li>
-        <li><Link to="/github">GitHub</Link></li>
-        <li><Link to="/features">Features</Link></li>
-      </ul>
-    </nav>
+    <div>
+      <div className={`navbar ${isOpen ? 'open' : ''}`} onClick={handleMenuClick}>
+        <div className="menu-toggle" onClick={toggleMenu}>
+          ☰
+        </div>
+        <div className="menu-content">
+          <Link to="/" onClick={closeMenu}>Home</Link>
+          <Link to="/pixiv" onClick={closeMenu}>Pixiv</Link>
+          <Link to="/github" onClick={closeMenu}>GitHub</Link>
+          <Link to="/features" onClick={closeMenu}>Features</Link>
+          <Link to="/generate" onClick={closeMenu}>Generate</Link>
+        </div>
+      </div>
+      {isOpen && <div className="overlay" onClick={closeMenu}></div>}
+    </div>
   );
 }
 

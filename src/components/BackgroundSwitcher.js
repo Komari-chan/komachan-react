@@ -1,12 +1,13 @@
-// src/components/BackgroundSwitcher.js
 import React, { useState, useEffect } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import './BackgroundSwitcher.css';
 
+const apiUrl = process.env.REACT_APP_API_URL;
+
 const backgrounds = [
-  './assets/background1.jpg',
-  './assets/background2.jpg',
-  './assets/background3.jpg'
+  `${apiUrl}/static/assets/background1.jpg`,
+  `${apiUrl}/static/assets/background2.jpg`,
+  `${apiUrl}/static/assets/background3.jpg`
 ];
 
 function BackgroundSwitcher() {
